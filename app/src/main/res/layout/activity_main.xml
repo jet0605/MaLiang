@@ -51,9 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+            <com.example.aiiage.drawerlayoutdemo.model.CircleImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/head_photo"/>
         </LinearLayout>
         <ListView
             android:id="@+id/left_listview"
