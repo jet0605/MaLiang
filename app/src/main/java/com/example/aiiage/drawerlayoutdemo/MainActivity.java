@@ -1,15 +1,22 @@
 package com.example.aiiage.drawerlayoutdemo;
 
+import android.Manifest;
+import android.content.Intent;
+import android.graphics.Color;
 import android.provider.ContactsContract;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.aiiage.drawerlayoutdemo.adapter.ContentAdapter;
 import com.example.aiiage.drawerlayoutdemo.model.ContentModel;
 
@@ -28,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.leftmenu)
     ImageView menuLeft;
     @BindView(R.id.rightmenu)
-   ImageView menuRight;
+    ImageView menuRight;
+    @BindView(R.id.tv_login)
+    TextView tv_login;
 
     private Adapter adapter;
     private List list;
@@ -53,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new ContentModel(R.drawable.setting, "设置", 5));
         list.add(new ContentModel(R.drawable.about, "关于", 6));
     }
-    @OnClick({R.id.leftmenu,R.id.rightmenu})
+    @OnClick({R.id.leftmenu,R.id.rightmenu,R.id.tv_login})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.leftmenu:
@@ -61,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.rightmenu:
                 drawerLayout.openDrawer(Gravity.RIGHT);
+                break;
+            case R.id.tv_login:
+                tv_login.setTextColor(Color.RED);
+                //Toast.makeText(MainActivity.this,"to login",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this,loginActivity.class);
+                startActivity(intent);
                 break;
             default:
         }
