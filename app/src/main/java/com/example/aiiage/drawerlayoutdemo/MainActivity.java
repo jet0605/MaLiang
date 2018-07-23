@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initData(){
         list = new ArrayList<ContentModel>();
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "新闻", 1));
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "订阅", 2));
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "图片", 3));
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "视频", 4));
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "跟帖", 5));
-        list.add(new ContentModel(R.drawable.ic_launcher_background, "投票", 6));
+        list.add(new ContentModel(R.drawable.friends, "好友", 1));
+        list.add(new ContentModel(R.drawable.message, "消息", 2));
+        list.add(new ContentModel(R.drawable.collection, "收藏", 3));
+        list.add(new ContentModel(R.drawable.cache, "缓存", 4));
+        list.add(new ContentModel(R.drawable.setting, "设置", 5));
+        list.add(new ContentModel(R.drawable.about, "关于", 6));
     }
     @OnClick({R.id.leftmenu,R.id.rightmenu})
     public void onClick(View view){

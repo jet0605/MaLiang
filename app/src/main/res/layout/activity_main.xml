@@ -51,16 +51,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.example.aiiage.drawerlayoutdemo.model.CircleImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/head_photo"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.example.aiiage.drawerlayoutdemo.model.CircleImageView
+                    android:id="@+id/head_photo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/head_photo"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginLeft="85dp"
+                    android:text="登录"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/black"/>
+            <ListView
+                android:id="@+id/left_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
         </LinearLayout>
-        <ListView
-            android:id="@+id/left_listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/right"
@@ -82,7 +98,7 @@
             android:layout_below="@id/p_pic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
-            android:text="个人中心"
+            android:text="分享"
             android:textColor="@android:color/black"
             android:textSize="14sp"/>
     </RelativeLayout>

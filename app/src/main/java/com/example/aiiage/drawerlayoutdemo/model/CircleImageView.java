@@ -1,5 +1,6 @@
 package com.example.aiiage.drawerlayoutdemo.model;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
  * @author jet
  * 自定义圆形Imageview，可以直接当组件在布局中使用
  */
+@SuppressLint("AppCompatCustomView")
 public class CircleImageView extends ImageView{
     private Paint paint;
     public CircleImageView(Context context){
