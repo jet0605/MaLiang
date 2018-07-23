@@ -33,6 +33,8 @@ public class loginActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.bt_go:
+                Intent intent2 = new Intent(loginActivity.this,TestActivity.class);
+                startActivity(intent2);
                 break;
                 default:
         }
