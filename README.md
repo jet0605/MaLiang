@@ -4,24 +4,24 @@
 
 主界面：
 
-![企业微信截图_15323956168763](C:\Users\aiiage\Desktop\企业微信截图_15323956168763.png)
+![主界面](F:\MaLiang\screenCapture\主界面.png)
 
 侧拉菜单界面：
 
 
 
-![企业微信截图_153239563622](C:\Users\aiiage\Desktop\企业微信截图_153239563622.png)
+![侧拉菜单](F:\MaLiang\screenCapture\侧拉菜单.png)
 
 
 
 登录界面：
 
+![登录](F:\MaLiang\screenCapture\登录.png)
 
 
-![企业微信截图_15323956559249](C:\Users\aiiage\Desktop\企业微信截图_15323956559249.png)
 
 注册页面：
 
-![企业微信截图_15323956723718](C:\Users\aiiage\Desktop\企业微信截图_15323956723718.png)
+![注册](F:\MaLiang\screenCapture\注册.png)
 
 主界面准备模仿instagram的主界面，暂时还在调整中
