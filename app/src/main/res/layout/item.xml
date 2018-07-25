@@ -42,10 +42,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="center"
-                android:src="@drawable/ic_heart_outline_white"
+                android:src="@drawable/starry_night"
+
                 android:visibility="invisible" />
 
-        </com.example.aiiage.drawerlayoutdemo.model.SquaredFrameLayout>>
+        </com.example.aiiage.drawerlayoutdemo.model.SquaredFrameLayout>
+        >
 
         <ImageView
             android:id="@+id/ivFeedBottom"

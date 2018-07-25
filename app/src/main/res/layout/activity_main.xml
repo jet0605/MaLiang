@@ -35,11 +35,19 @@
                 android:src="@drawable/share"/>
         </RelativeLayout>
         <LinearLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/title_bar"
-            android:orientation="vertical"/>
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvFeed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/left"

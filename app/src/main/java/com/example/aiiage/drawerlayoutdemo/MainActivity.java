@@ -4,9 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.ContactsContract;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -18,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aiiage.drawerlayoutdemo.adapter.ContentAdapter;
+import com.example.aiiage.drawerlayoutdemo.adapter.FeedAdapter;
 import com.example.aiiage.drawerlayoutdemo.model.ContentModel;
 
 import java.util.ArrayList;
@@ -27,7 +32,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FeedAdapter.OnFeedItemClickListener,
+        FeedContextMenu.OnFeedContextMenuItemClickListener{
     @BindView(R.id.left_listview)
     ListView listView;
     @BindView(R.id.drawerlayout)
@@ -38,9 +44,13 @@ public class MainActivity extends AppCompatActivity {
     ImageView menuRight;
     @BindView(R.id.tv_login)
     TextView tv_login;
-
+    @BindView(R.id.content)
+    CoordinatorLayout clContent;
+    @BindView(R.id.rvFeed)
+    RecyclerView rvFeed;
     private Adapter adapter;
     private List list;
+    private FeedAdapter feedAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         adapter = new ContentAdapter(this,list);
         listView.setAdapter((ListAdapter) adapter);
+        feedAdapter.updateItems(false);
     }
     private void initData(){
         list = new ArrayList<ContentModel>();
@@ -79,5 +90,43 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
         }
+    }
+    private void setupFeed() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) {
+            @Override
+            protected int getExtraLayoutSpace(RecyclerView.State state) {
+                return 300;
+            }
+        };
+        rvFeed.setLayoutManager(linearLayoutManager);
+
+        feedAdapter = new FeedAdapter(this);
+        feedAdapter.setOnFeedItemClickListener(this);
+        rvFeed.setAdapter(feedAdapter);
+        rvFeed.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
+            }
+        });
+        rvFeed.setItemAnimator(new FeedItemAnimator());
+    }
+    public void showLikedSnackbar() {
+        Snackbar.make(clContent, "Liked!", Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCommentsClick(View v, int position) {
+
+    }
+
+    @Override
+    public void onMoreClick(View v, int position) {
+
+    }
+
+    @Override
+    public void onProfileClick(View v) {
+
     }
 }
